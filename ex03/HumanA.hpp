@@ -22,7 +22,8 @@ class HumanA
 	public :
 
 	HumanA( std::string humanName, Weapon &weapon );
-	void	attack() const;
+	~HumanA( void );
+	void	attack( void ) const;
 
 	private :
 

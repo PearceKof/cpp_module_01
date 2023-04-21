@@ -5,13 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/17 11:36:30 by blaurent          #+#    #+#              #
-#    Updated: 2023/04/17 11:36:30 by blaurent         ###   ########.fr        #
+#    Created: 2023/04/21 15:54:41 by blaurent          #+#    #+#              #
+#    Updated: 2023/04/21 15:54:41 by blaurent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= sed
-SRCS	= main.cpp Sed.cpp
+NAME	= harl
+SRCS	= main.cpp Harl.cpp
 	
 CC		= g++
 FLAGS	= -Wall -Wextra -Werror -std=c++98

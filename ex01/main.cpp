@@ -12,12 +12,12 @@
 
 #include "Zombie.hpp"
 
-int	main(void)
+int	main( void )
 {
-	Zombie *horde;
+	Zombie	*horde;
 
 	horde = zombieHorde(5, "zombie simple");
-	for (int i = 0; i < 5 ; i++)
+	for (int i = 0 ; i < 5 ; i++)
 	{
 		horde[i].announce();
 	}

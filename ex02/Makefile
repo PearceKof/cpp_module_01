@@ -11,37 +11,33 @@
 # **************************************************************************** #
 
 NAME	= hiBrain
+SRCS	= main.cpp
 	
-CC		= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
-SRCDIR = ./
-SRCNAMES = $(shell ls $(SRCDIR) | grep -E ".+\.c++")
-SRC = $(addprefix $(SRCDIR), $(SRCNAMES))
+CC		= g++
+FLAGS	= -Wall -Wextra -Werror -std=c++98
+RM		= rm -rf
 
-BUILDDIR = ./build/
-BUILDOBJS = $(addprefix $(BUILDDIR), $(SRCNAMES:.cpp=.o))
+GREEN		=	\e[92;5;118m
+YELLOW		=	\e[93;5;226m
+GRAY		=	\e[33;2;37m
+RESET		=	\e[0m
+CURSIVE		=	\e[33;3m
 
-# Main rule
-all: $(BUILDDIR) $(NAME)
+.PHONY: all clean re
 
-# Object dir rule
-$(BUILDDIR):
-	mkdir -p $(BUILDDIR)
+all: $(NAME)
 
-# Objects rule
-$(BUILDDIR)%.o:$(SRCDIR)%.cpp
-	$(CC) $(CFLAGS) -o $@ -c $<
-
-# Project file rule
-$(NAME): $(BUILDOBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(BUILDOBJS)
+$(NAME): 
+	@printf "$(CURSIVE)$(GRAY) 	- Compiling $(NAME)... $(RESET)\n"
+	@ $(CC) $(FLAGS) $(SRCS) -o $(NAME)
+	@printf "$(GREEN)    - Executable ready.\n$(RESET)"
 
 clean:
-	rm -rf $(BUILDDIR)
+	@$(RM) $(NAME)
+	@printf "$(YELLOW)    - Executable removed.$(RESET)\n"
 
-fclean: clean
-	rm -rf $(NAME)
+fclean:
+	@$(RM) $(NAME)
+	@printf "$(YELLOW)    - Executable removed.$(RESET)\n"
 
-re: fclean all
-
-.PHONY: all fclean clean re
+re: clean all

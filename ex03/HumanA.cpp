@@ -11,12 +11,15 @@
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
-# include "Weapon.hpp"
-# include <string>
-# include <iostream>
 
 HumanA::HumanA( std::string humanName, Weapon &weapon ) : name(humanName), weaponType(weapon)
 {
+	std::cout << "constructor called" << std::endl;
+}
+
+HumanA::~HumanA( void )
+{
+	std::cout << "destructor called" << std::endl;
 }
 
 void	HumanA::attack( void ) const

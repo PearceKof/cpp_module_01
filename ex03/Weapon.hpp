@@ -13,7 +13,7 @@
 #ifndef WEAPON_H
 # define WEAPON_H
 
-#include <string>
+# include <string>
 
 class Weapon
 {
@@ -23,9 +23,10 @@ class Weapon
 
 	public:
 
-	Weapon();
+	Weapon( void );
 	Weapon( std::string weaponType );
-	const std::string getType( void );
+	~Weapon( void );
+	const	std::string getType( void );
 	void	setType( std::string newType );
 
 };

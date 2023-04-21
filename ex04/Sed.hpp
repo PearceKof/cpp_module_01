@@ -21,13 +21,14 @@ class Sed
 {
 	private :
 
-	std::string iFile;
-	std::string oFile;
+	std::string filenameToCopy;
+	std::string filenameReplace;
 
 	public :
 
-	Sed(std::string filename);
-	void replace(std::string, std::string);
+	Sed( std::string filename );
+	~Sed( void );
+	void replace( std::string toFind, std::string toReplace );
 
 };
 

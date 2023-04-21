@@ -15,17 +15,22 @@
 int	main( void )
 {
 	Zombie	test("TEST");
-	Zombie	zombieTab[2];
-	Zombie	*zombiePtr;
-
 	test.announce();
+
+	Zombie	zombieTab[2];
+
 	zombieTab[0].setName("Ben");
 	zombieTab[0].announce();
+
 	zombieTab[1].setName("Arnold");
 	zombieTab[1].announce();
+
+	Zombie	*zombiePtr;
 	zombiePtr = newZombie("zombie ptr");
 	zombiePtr->announce();
-	randomChump("random zombie");
 	delete zombiePtr;
+
+	randomChump("random zombie");
+
 	return (0);
 }

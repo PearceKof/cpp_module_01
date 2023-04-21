@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 11:38:15 by blaurent          #+#    #+#             */
-/*   Updated: 2023/04/17 11:38:15 by blaurent         ###   ########.fr       */
+/*   Created: 2023/04/21 15:55:36 by blaurent          #+#    #+#             */
+/*   Updated: 2023/04/21 15:55:36 by blaurent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sed.hpp"
+#ifndef Harl_H
+# define Harl_H
 
-int	main( int ac, char **av )
+# include <string>
+# include <iostream>
+
+class Harl
 {
-	if (ac == 4)
-	{
-		std::string filename(av[1]);
-		std::string toFind(av[2]);
-		std::string toReplace(av[3]);
-		Sed test(filename);
-		test.replace(toFind, toReplace);
-	}
-	else
-	{
-		std::cerr << "Error: invalid argument ./sed <filename> <s1> <s2>" << std::endl;
-		return (1);
-	}
-	return (0);
-}
+	private:
+
+	void	debug( void );
+	void	info( void );
+	void	warning( void );
+	void	error( void );
+	public:
+
+	Harl( void );
+	~Harl( void );
+	void	complain( std::string level );
+
+};
+
+#endif

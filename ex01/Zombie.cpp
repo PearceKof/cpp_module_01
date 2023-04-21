@@ -12,27 +12,28 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie()
+Zombie::Zombie( void ) : name("no name")
 {
-	name = "no name";
+	std::cout << "constructor called" << std::endl;
 }
 
-Zombie::Zombie(std::string s)
+Zombie::Zombie( std::string s ) : name(s)
 {
-	name = s;
+	std::cout << "constructor called" << std::endl;
 }
 
-Zombie::~Zombie()
+Zombie::~Zombie( void )
 {
-	std::cout << name << ": destroyed" << std::endl;
+	std::cout << "destructor called" << std::endl;
+	std::cout << this->name << ": destroyed" << std::endl;
 }
 
 void	Zombie::announce( void )
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
 
-void	Zombie::setName(std::string s)
+void	Zombie::setName( std::string s )
 {
-	name = s;
+	this->name = s;
 }
