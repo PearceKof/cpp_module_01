@@ -16,11 +16,8 @@ int	main( int ac, char **av )
 {
 	if (ac == 4)
 	{
-		std::string filename(av[1]);
-		std::string toFind(av[2]);
-		std::string toReplace(av[3]);
-		Sed test(filename);
-		test.replace(toFind, toReplace);
+		Sed test(av[1], av[2], av[3]);
+		test.replace();
 	}
 	else
 	{

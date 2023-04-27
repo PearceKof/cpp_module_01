@@ -14,17 +14,17 @@
 
 HumanB::HumanB( std::string humanName ) : name(humanName), weaponType(NULL)
 {
-	std::cout << "constructor called" << std::endl;
+	std::cout << "HumanB: constructor called" << std::endl;
 }
 
 HumanB::HumanB( std::string humanName, Weapon *weapon ) : name(humanName), weaponType(weapon)
 {
-	std::cout << "constructor called" << std::endl;
+	std::cout << "HumanB: constructor called" << std::endl;
 }
 
 HumanB::~HumanB( void )
 {
-	std::cout << "destructor called" << std::endl;
+	std::cout << "HumanB: destructor called" << std::endl;
 }
 
 void	HumanB::attack( void ) const

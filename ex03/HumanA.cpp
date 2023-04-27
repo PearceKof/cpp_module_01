@@ -14,12 +14,12 @@
 
 HumanA::HumanA( std::string humanName, Weapon &weapon ) : name(humanName), weaponType(weapon)
 {
-	std::cout << "constructor called" << std::endl;
+	std::cout << "HumanA: constructor called" << std::endl;
 }
 
 HumanA::~HumanA( void )
 {
-	std::cout << "destructor called" << std::endl;
+	std::cout << "HumanA: destructor called" << std::endl;
 }
 
 void	HumanA::attack( void ) const

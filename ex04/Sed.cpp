@@ -12,7 +12,10 @@
 
 #include "Sed.hpp"
 
-Sed::Sed(std::string filename) : filenameToCopy(filename), filenameReplace(filename + ".replace")
+Sed::Sed(char *filename, char *find, char *replace) : filenameToCopy(filename),
+										filenameReplace(filenameToCopy + ".replace"),
+										toFind(find),
+										toReplace(replace)
 {
 	std::cout << "constructor called" << std::endl;
 }
@@ -22,51 +25,45 @@ Sed::~Sed( void )
 	std::cout << "destructor called" << std::endl;
 }
 
-void	Sed::replace( std::string toFind, std::string replacement )
+void	Sed::replace( void )
 {
 	std::ifstream inputStream(this->filenameToCopy.c_str());
 
 	if (inputStream.is_open())
 	{
 		std::string readed("");
-		if (std::getline(inputStream, readed, '\0'))
+		if (std::getline(inputStream, readed, '\0') || inputStream.eof())
 		{
-			std::cerr << "DEBUG: " << readed << std::endl;
 			std::ofstream outputStream(this->filenameReplace.c_str());
 			if (outputStream.is_open())
 			{
 				size_t i(0);
+				std::ofstream outputStream(this->filenameReplace.c_str());
 				while (i < readed.length())
 				{
-					if (readed.compare(i, toFind.length(), toFind))
+					if (readed.compare(i, this->toFind.length(), this->toFind))
 					{
 						outputStream << readed[i] << std::flush;
 						i++;
 					}
 					else
 					{
-						outputStream << replacement;
-						i += toFind.length();
+						outputStream << this->toReplace;
+						i += this->toFind.length();
 					}
-					if (outputStream.fail())
-						std::cerr << this->filenameReplace << "error";
 				}
 			}
 			else
 			{
-				std::cerr << "ERROR: failed to open " << this->filenameReplace << std::endl;
+				std::cerr << "ERROR: " << this->filenameReplace << ": " << strerror(errno) << std::endl;
 			}
 			outputStream.close();
-		}
-		else
-		{
-			std::cerr << "DEBUG";
 		}
 		inputStream.close();
 	}
 	else
 	{
-		std::cerr << "ERROR: failed to open " << this->filenameToCopy << std::endl;
+		std::cerr << "ERROR: " << this->filenameToCopy << ": " << strerror(errno) << std::endl;
 	}
 
 }

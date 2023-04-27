@@ -14,17 +14,17 @@
 
 Weapon::Weapon( void ) : type("nothing")
 {
-	std::cout << "constructor called" << std::endl;
+	std::cout << "Weapon: constructor called" << std::endl;
 }
 
 Weapon::Weapon( std::string weaponType ) : type(weaponType)
 {
-	std::cout << "constructor called" << std::endl;
+	std::cout << "Weapon: constructor called" << std::endl;
 }
 
 Weapon::~Weapon( void )
 {
-	std::cout << "destructor called" << std::endl;
+	std::cout << "Weapon: destructor called" << std::endl;
 }
 
 const	std::string Weapon::getType( void )

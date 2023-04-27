@@ -23,12 +23,14 @@ class Sed
 
 	std::string filenameToCopy;
 	std::string filenameReplace;
+	std::string toFind;
+	std::string toReplace;
 
 	public :
 
-	Sed( std::string filename );
+	Sed( char *filename, char *find, char *replace);
 	~Sed( void );
-	void replace( std::string toFind, std::string toReplace );
+	void replace( void );
 
 };
 

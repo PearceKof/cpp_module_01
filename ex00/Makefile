@@ -1,43 +1,41 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: blaurent <blaurent@student.s19.be>         +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/04/10 14:55:19 by blaurent          #+#    #+#              #
-#    Updated: 2023/04/10 14:55:19 by blaurent         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
-NAME	= zombie
-SRCS	= zombie.cpp newZombie.cpp main.cpp randomChump.cpp 
-	
-CC		= g++
-FLAGS	= -Wall -Wextra -Werror -std=c++98
-RM		= rm -rf
+NAME        = zombie
+SRCS        = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+CC         = c++
+FLAGS    = -Wall -Wextra -Werror -std=c++98
+OBJS        = ${SRCS:.cpp=.o}
+               
 
-GREEN		=	\e[92;5;118m
-YELLOW		=	\e[93;5;226m
-GRAY		=	\e[33;2;37m
-RESET		=	\e[0m
-CURSIVE		=	\e[33;3m
+CLR_RMV		= \033[0m
+RED		    = \033[1;31m
+GREEN		= \033[1;32m
+YELLOW		= \033[1;33m
+BLUE		= \033[1;34m
+CYAN 		= \033[1;36m
+RM		    = rm -f
 
-.PHONY: all clean re
+.cpp.o:
+	${CC} ${FLAGS} -c $< -o ${<:.cpp=.o}
 
-all: $(NAME)
+${NAME}:	${OBJS}
+			@echo "$(GREEN)Compilation ${CLR_RMV}of ${YELLOW}$(NAME) ${CLR_RMV}..."
+			${CC} ${FLAGS} -o ${NAME} ${OBJS}
+			@echo "$(GREEN)$(NAME) created[0m ✔️"
 
-$(NAME): 
-	@printf "$(CURSIVE)$(GRAY) 	- Compiling $(NAME)... $(RESET)\n"
-	@ $(CC) $(FLAGS) $(SRCS) -o $(NAME)
-	@printf "$(GREEN)    - Executable ready.\n$(RESET)"
+all:		${NAME}
+
+bonus:		all
 
 clean:
-	@$(RM) $(NAME)
-	@printf "$(YELLOW)    - Executable removed.$(RESET)\n"
+			@ ${RM} $(OBJS)
+			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
-fclean:
-	@$(RM) $(NAME)
-	@printf "$(YELLOW)    - Executable removed.$(RESET)\n"
+fclean:		clean
+			@ ${RM} ${NAME}
+			@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
 
-re: clean all
+re:			fclean all
+
+.PHONY:		all clean fclean re
+
+
