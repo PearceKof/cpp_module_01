@@ -12,11 +12,6 @@
 
 #include "Weapon.hpp"
 
-Weapon::Weapon( void ) : type("nothing")
-{
-	std::cout << "Weapon: constructor called" << std::endl;
-}
-
 Weapon::Weapon( std::string weaponType ) : type(weaponType)
 {
 	std::cout << "Weapon: constructor called" << std::endl;

@@ -24,7 +24,6 @@ class Weapon
 
 	public:
 
-	Weapon( void );
 	Weapon( std::string weaponType );
 	~Weapon( void );
 	const	std::string getType( void );
