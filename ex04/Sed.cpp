@@ -25,7 +25,7 @@ Sed::~Sed( void )
 	std::cout << "destructor called" << std::endl;
 }
 
-void	Sed::replace( void )
+int	Sed::replace( void )
 {
 	std::ifstream inputStream(this->filenameToCopy.c_str());
 
@@ -56,6 +56,7 @@ void	Sed::replace( void )
 			else
 			{
 				std::cerr << "ERROR: " << this->filenameReplace << ": " << strerror(errno) << std::endl;
+				return (1);
 			}
 			outputStream.close();
 		}
@@ -64,6 +65,7 @@ void	Sed::replace( void )
 	else
 	{
 		std::cerr << "ERROR: " << this->filenameToCopy << ": " << strerror(errno) << std::endl;
+		return (1);
 	}
-
+	return (0);
 }

@@ -14,10 +14,15 @@
 
 int	main( int ac, char **av )
 {
+	if (!(*av[1]))
+	{
+		std::cerr << "ERROR: filename is empty" << std::endl;
+		return (1);
+	}
 	if (ac == 4)
 	{
-		Sed test(av[1], av[2], av[3]);
-		test.replace();
+		Sed mySed(av[1], av[2], av[3]);
+		return (mySed.replace());
 	}
 	else
 	{

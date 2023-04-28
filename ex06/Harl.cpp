@@ -47,18 +47,19 @@ void Harl::complain( std::string level )
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int i(0);
 
-	while (level.compare(levels[i]) and i < 4)
+	while (i < 4 and level.compare(levels[i]))
 		i++;
 	switch (i)
 	{
 	case 0:
-		harl.debug();
+		this->debug();
 	case 1:
-		harl.info();
+		this->info();
 	case 2:
-		harl.warning();
+		this->warning();
 	case 3:
-		harl.error();
+		this->error();
+		break;
 	default:
 		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 		break;

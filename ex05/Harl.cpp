@@ -48,7 +48,7 @@ void Harl::complain( std::string level )
 	std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	int i(0);
 
-	while (level.compare(levels[i]) and i < 4)
+	while (i < 4 and level.compare(levels[i]))
 		i++;
 	if (i < 4)
 		(this->*f[i])();

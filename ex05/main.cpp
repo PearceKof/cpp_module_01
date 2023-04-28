@@ -15,13 +15,11 @@
 int	main( void )
 {
 	Harl	harl;
+	std::string line("");
 
-	harl.complain("DEBUG");
-	harl.complain("INFO");
-	harl.complain("WARNING");
-	harl.complain("ERROR");
+	std::cout << "Enter a level: " << std::flush;
+	std::cin >> line;
+	harl.complain(line);
 
-	harl.complain("ERROR AVEC DES TRUCS EN PLUS");
-	harl.complain("RANDOM TEST");
 	return (0);
 }
