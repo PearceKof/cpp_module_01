@@ -14,7 +14,7 @@ NAME	= harlfilter
 SRCS	= main.cpp Harl.cpp
 	
 CC         = c++
-FLAGS    = -Wall -Wextra -Werror -Werror=implicit-fallthrough=0 -std=c++98
+FLAGS    = -Wall -Wextra -Werror -Werror -std=c++98
 OBJS        = ${SRCS:.cpp=.o}
                
 

@@ -30,7 +30,7 @@ class Sed
 
 	Sed( char *filename, char *find, char *replace);
 	~Sed( void );
-	void replace( void );
+	int	replace( void );
 
 };
 
